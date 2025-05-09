@@ -454,33 +454,35 @@
 						<h2 class="title">
 							<p><strong>방명록</strong><i>GUESTBOOK</i></p>
 						</h2>
+						<div class="ul-body col-3">
+							<div class="sub_msg_wrap">
+								<div class="sub_gb_img" style="background:url('./static/images/cd038df716127edd361b645c3c3ae84e.jpg') CENTER CENTER no-repeat; background-size:cover"></div>
+								<div class="sub_gb_msg"><span>신랑♥신부에게 축하메시지를 남겨주세요!</span></div>
+							</div>
+						</div>
 						<div class="ul-body col-3" id="guestbook-list">
-							<!-- 방명록 글 리스트가 여기에 표시됩니다 -->
+							<!-- 방명록 글 리스트 표시영역 -->
 						</div>
 
-						<!-- "방명록 남기기" 버튼: 클릭 시 아래 폼을 보여줌 -->
 						<div class="gb_btn btn_go_snsbbs" id="guestbook-add-btn">
 							<span>방명록 남기기</span>
 						</div>
 
-						<!-- 방명록 작성 폼: 초기에는 숨겨져 있음 -->
+						<!-- 방명록 작성 폼 -->
 						<form class="guestbook-form" id="guestbook-form" style="display: none;">
 							<div class="input-row">
-								<!-- JavaScript의 addGuestbook 함수에서 사용하는 ID와 일치하도록 수정 -->
 								<input type="text" id="guestbook-userName" name="userName" placeholder="성함" autocomplete="off" required />
 								<input type="password" id="guestbook-deleteKey" name="deleteKey" placeholder="삭제용 암호" autocomplete="off" required />
 							</div>
-							<!-- JavaScript의 addGuestbook 함수에서 사용하는 ID와 일치하도록 수정 -->
 							<textarea id="guestbook-text" name="text" placeholder="입력 100자 이내" maxlength="100" required></textarea>
 							<div class="button-row">
-								<!-- 폼 제출을 위한 submit 타입 버튼 -->
 								<button type="submit" id="guestbook-submit">등록</button>
-								<button type="button" id="guestbook-cancel">취소</button> <!-- type="button"으로 변경하여 폼 제출 방지 -->
+								<button type="button" id="guestbook-cancel">취소</button>
 							</div>
 						</form>
 
 						<div class="pagination" id="guestbook-pagination">
-							<!-- 페이지네이션 버튼이 여기에 표시됩니다 -->
+							<!-- 페이지네이션 표시 영역 -->
 						</div>
 					</div>
 					<!-- 방명록 전체 영역 끝 -->
@@ -543,7 +545,18 @@
 
 		<!-- 손그림 애니메이션 스크립트 -->
 		<script>
-			new Vivus('SvgTitle', {type: 'scenario-sync',onReady: function () {$('.header_svg').addClass("animated");}});
+			document.addEventListener('DOMContentLoaded', function() {
+				if (typeof Vivus !== 'undefined' && typeof jQuery !== 'undefined') {
+					new Vivus('SvgTitle', {
+						type: 'scenario-sync',
+						onReady: function () {
+							$('.header_svg').addClass("animated");
+						}
+					});
+				} else {
+					console.error("Vivus or jQuery not loaded yet.");
+				}
+			});
 		</script>
 
 		<!-- 기타 스크립트 -->

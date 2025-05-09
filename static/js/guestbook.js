@@ -1,5 +1,4 @@
 const apiUrl = "https://api.lixlim.com/wedding/guestbook";
-let currentPage = 1;
 
 // 방명록 리스트 가져오기
 async function fetchGuestbook(page = 0, size = 10, sort = "createdDatetimeUtc,desc") { // size와 sort 파라미터 추가
@@ -9,7 +8,6 @@ async function fetchGuestbook(page = 0, size = 10, sort = "createdDatetimeUtc,de
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         const pageData = await response.json(); // Spring Page 객체 전체를 받음
-        console.log("Fetched Page Data:", pageData); // 응답 데이터 확인
 
         // renderGuestbook 함수에 Page 객체의 content와 필요한 페이징 정보를 전달
         if (pageData && pageData.page) { // pageData와 pageData.page 객체가 모두 존재하는지 확인
@@ -64,8 +62,6 @@ function renderGuestbook(guestbookEntries, totalPages, currentPageNumber) { // �
 
     // 페이지네이션 버튼 생성
     if (paginationContainer && totalPages > 1) {
-        console.log("Rendering pagination buttons because totalPages =", totalPages);
-
         const maxPageButtons = 5; // 한 번에 표시할 최대 페이지 버튼 수
         let startPage, endPage;
 
