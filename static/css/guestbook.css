@@ -1,0 +1,402 @@
+/* ----- 전역 & 기본 스타일 ----- */
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --accent-color: #f39c12;
+    --text-color: #333;
+    --light-text-color: #777;
+    --bg-color: #f4f7f6;
+    --card-bg-color: #ffffff;
+    --border-color: #e0e0e0;
+    --error-color: #e74c3c;
+    --success-color: #2ecc71;
+
+    --font-family-main: 'Noto Sans KR', 'Roboto', sans-serif;
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --box-shadow-light: 0 2px 8px rgba(0, 0, 0, 0.08);
+    --box-shadow-medium: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: var(--font-family-main);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+/* ----- 방명록 전체 컨테이너 스타일 ----- */
+.guestbook_wrap {
+    max-width: 700px; /* 컴팩트하게 보이도록 최대 너비 약간 줄임 */
+    margin: 30px auto;
+    padding: 25px;
+    background-color: var(--card-bg-color);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--box-shadow-medium);
+}
+
+/* ----- 방명록 목록 스타일 ----- */
+#guestbook-list {
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    /* 만약 #guestbook-list 자체에 text-align: center; 등이 있다면 제거하거나 left로 변경 */
+    /* text-align: left; */
+}
+
+.msg_wrap {
+    background-color: #fff;
+    padding: 6px 8px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-sm);
+    box-shadow: var(--box-shadow-light);
+    text-align: left;
+    /* 기존 .msg_wrap의 width, max-width, margin, 큰 padding, 배경색은 제거됨 */
+    /* 기존 position:relative 는 제거됨 */
+}
+
+.gb_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+    font-size: 13px;
+}
+
+.gb_meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--light-text-color);
+}
+
+.gb_meta strong {
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.gb_date {
+    font-size: 12px;
+}
+
+.delete-btn {
+    background-color: transparent;
+    color: var(--error-color);
+    border: 1px solid transparent;
+    padding: 4px 8px;
+    border-radius: var(--border-radius-sm);
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-left: auto; /* gb_meta와 delete-btn 사이 공간 확보 */
+}
+
+.delete-btn:hover {
+    border-color: var(--error-color);
+    background-color: rgba(231, 76, 60, 0.05);
+}
+
+.gb_msg { /* 방명록 내용 */
+    font-size: 15px;
+    color: var(--text-color);
+    line-height: 1.6;
+    word-break: break-word;
+    text-align: left; /* <<--- 이 속성은 유지, 하지만 부모의 영향이 더 클 수 있음 */
+    /* width: 100%; */ /* 명시적으로 너비를 100%로 설정하여 부모의 text-align 영향 줄이기 시도 */
+                      /* 하지만 msg_wrap의 너비가 문제일 가능성이 더 큼 */
+}
+
+/* ----- "방명록 남기기" 버튼 스타일 ----- */
+.gb_btn#guestbook-add-btn {
+    display: block;
+    width: max-content;
+    margin: 0 auto 25px auto;
+    padding: 10px 20px; /* 패딩 약간 줄임 */
+    background-color: var(--secondary-color);
+    color: #fff;
+    text-align: center;
+    border-radius: var(--border-radius-md);
+    font-size: 15px; /* 폰트 크기 약간 줄임 */
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: var(--box-shadow-light);
+}
+
+.gb_btn#guestbook-add-btn:hover {
+    background-color: #27ae60;
+    transform: translateY(-2px);
+}
+
+/* ----- 방명록 입력 폼 스타일 ----- */
+.guestbook-form {
+    padding: 20px; /* 패딩 약간 줄임 */
+    background-color: #fdfdfd;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+    display: flex;
+    flex-direction: column;
+    gap: 12px; /* 간격 약간 줄임 */
+    margin-bottom: 25px;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.guestbook-form .input-row {
+    display: flex;
+    gap: 12px;
+}
+
+.guestbook-form .input-row input[type="text"],
+.guestbook-form .input-row input[type="password"] {
+    flex-grow: 1;
+    width: auto;
+}
+
+.guestbook-form input[type="text"],
+.guestbook-form input[type="password"],
+.guestbook-form textarea {
+    padding: 10px 12px; /* 패딩 약간 줄임 */
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-sm);
+    font-size: 14px; /* 폰트 크기 약간 줄임 */
+    font-family: var(--font-family-main);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.guestbook-form input[type="text"]:focus,
+.guestbook-form input[type="password"]:focus,
+.guestbook-form textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+.guestbook-form textarea {
+    width: 100%;
+    min-height: 100px; /* 최소 높이 약간 줄임 */
+    resize: vertical;
+}
+
+.guestbook-form .button-row {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px; /* 간격 약간 줄임 */
+}
+
+.guestbook-form button {
+    min-width: 90px; /* 최소 너비 약간 줄임 */
+    padding: 8px 18px; /* 패딩 약간 줄임 */
+    font-size: 14px; /* 폰트 크기 약간 줄임 */
+    font-weight: 500;
+    border: none;
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+/* #guestbook-submit, #guestbook-cancel 스타일은 이전과 동일하게 사용 가능 */
+#guestbook-submit {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+#guestbook-submit:hover {
+    background-color: #2980b9;
+}
+#guestbook-cancel {
+    background-color: #e0e0e0;
+    color: var(--text-color);
+}
+#guestbook-cancel:hover {
+    background-color: #c7c7c7;
+}
+
+/* ----- 페이지네이션 스타일 ----- */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 25px;
+}
+.pagination button {
+    background-color: var(--card-bg-color);
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    padding: 8px 14px;
+    border-radius: var(--border-radius-sm);
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.pagination button:hover:not(.active) {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+.pagination button.active {
+    background-color: var(--primary-color);
+    color: #fff;
+    font-weight: bold;
+    cursor: default;
+}
+.pagination button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background-color: #e0e0e0;
+    border-color: #e0e0e0;
+    color: #999;
+}
+
+/* ----- 모바일 화면 대응 스타일 (예: 화면 너비 768px 이하) ----- */
+@media (max-width: 768px) {
+    body {
+        padding: 10px; /* body 전체 패딩 줄임 */
+    }
+
+    .guestbook_wrap {
+        margin: 15px auto; /* 상하 마진 줄임 */
+        padding: 15px;     /* 내부 패딩 줄임 */
+    }
+
+    #guestbook-list {
+        gap: 8px; /* 글 간의 간격 더 줄임 */
+        margin-bottom: 20px;
+    }
+
+    .msg_wrap {
+        padding: 8px 10px; /* 각 글의 내부 패딩 더 줄임 */
+    }
+
+    .gb_header {
+        margin-bottom: 6px; /* 헤더와 본문 사이 간격 줄임 */
+        font-size: 12px; /* 헤더 폰트 크기 약간 줄임 */
+    }
+
+    .gb_meta {
+        gap: 6px; /* 작성자와 날짜 사이 간격 줄임 */
+        flex-wrap: wrap; /* 작성자 정보가 길 경우 줄바꿈 허용 */
+    }
+
+    .gb_date {
+        font-size: 11px; /* 날짜 폰트 크기 줄임 */
+    }
+
+    .delete-btn {
+        padding: 3px 6px; /* 삭제 버튼 패딩 줄임 */
+        font-size: 11px;   /* 삭제 버튼 폰트 크기 줄임 */
+        flex-shrink: 0; /* 버튼 크기가 내용에 따라 줄어들지 않도록 */
+    }
+
+    .gb_msg {
+        font-size: 14px; /* 본문 폰트 크기 약간 줄임 */
+        line-height: 1.5;
+    }
+
+    .gb_btn#guestbook-add-btn {
+        padding: 8px 15px;
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+
+    .guestbook-form {
+        padding: 15px;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+
+    .guestbook-form .input-row {
+        flex-direction: column; /* 이름과 암호 입력칸을 세로로 쌓음 */
+        gap: 10px; /* 세로로 쌓인 입력칸 사이 간격 */
+    }
+
+    .guestbook-form .input-row input[type="text"],
+    .guestbook-form .input-row input[type="password"] {
+        width: 100%; /* 각 입력칸이 전체 너비를 차지하도록 */
+    }
+
+    .guestbook-form textarea {
+        min-height: 80px; /* 텍스트 영역 최소 높이 줄임 */
+        font-size: 13px;
+    }
+
+    .guestbook-form input[type="text"],
+    .guestbook-form input[type="password"] {
+        font-size: 13px;
+    }
+
+    .guestbook-form .button-row {
+        gap: 6px;
+        /* 버튼들을 중앙 또는 전체 너비로 배치하고 싶다면 아래 주석 해제 및 수정 */
+        /* justify-content: center; */
+        /* flex-direction: column; */ /* 버튼도 세로로 쌓고 싶다면 */
+    }
+
+    .guestbook-form button {
+        min-width: 80px;
+        padding: 8px 15px; /* 버튼 패딩 조정 */
+        font-size: 13px;
+        /* flex-grow: 1; */ /* 버튼이 세로로 쌓일 때 동일 너비로 만들고 싶다면 */
+    }
+
+    .pagination {
+        gap: 6px;
+        margin-top: 20px;
+    }
+    .pagination button {
+        padding: 6px 10px;
+        font-size: 13px;
+    }
+}
+
+/* 더 작은 화면 (예: 480px 이하)을 위한 추가 미세 조정 (선택 사항) */
+@media (max-width: 480px) {
+    body {
+        padding: 8px;
+    }
+    .guestbook_wrap {
+        padding: 10px;
+        margin: 10px auto;
+    }
+    #guestbook-list {
+        gap: 6px;
+    }
+    .msg_wrap {
+        padding: 6px 8px;
+    }
+    .gb_header {
+        font-size: 11px;
+        margin-bottom: 4px;
+    }
+    .gb_meta {
+        gap: 4px;
+    }
+    .gb_date {
+        font-size: 10px;
+    }
+    .delete-btn {
+        font-size: 10px;
+        padding: 2px 5px;
+    }
+    .gb_msg {
+        font-size: 13px;
+    }
+    .guestbook-form .input-row {
+        gap: 8px;
+    }
+    .guestbook-form textarea {
+        min-height: 70px;
+    }
+    .guestbook-form button {
+        padding: 7px 12px;
+    }
+    .pagination button {
+        padding: 5px 8px;
+        font-size: 12px;
+    }
+}

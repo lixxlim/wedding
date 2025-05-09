@@ -517,59 +517,7 @@ div#panel_bride,div#panel_bride .ui-panel-inner {padding:0}
 }
 
 /* Guestbook */
-#div_snsbbs:after {clear:both; content:''; display:block}
-.snsbbs_sections {position:relative!important;width:100% !important;left: auto!important;top: auto!important;/* padding: 0 0 10px; */}
-.snsbbs_sections .ui-body-d {position:relative;margin:0 auto;width:90%;max-width: 640px;border:1px solid #d9d9d9;border-bottom:0;background-color: #fff;}
-.snsbbs_sections .ui-body-d:last-child{border-bottom:1px solid #d9d9d9;}
-@media (max-width:640px) {
-	.snsbbs_sections .ui-body-d:nth-of-type(even) {background-color: #fcfcfc;}
-	.snsbbs_sections .ui-body-d {border-color: #f0f0f0!important}
-}
-@media (max-width:560px){
-	.snsbbs_sections .ui-body-d:nth-of-type(4){border-bottom:1px solid #d9d9d9}
-}
-.gb_btn {position:relative;width: 150px;height: 45px;margin: 30px auto 0;padding: 12px 0 0;font-size: 1em;border-radius: 45px;font-weight: 500;text-align: center;color: #fff;background-color: #eb9687;}
-
-.pro_img {position: absolute;top: 30px;left: 40px;width: 50px;height: 50px;border-radius:50%;background-color: #fff;}
-.pro_img img {width: 100%;height: 100%;display:block;border-radius:50%;border: 0;overflow:hidden;}
-
-.gb_cont_box {position:relative;margin: 0;min-height: 95px;padding: 28px 30px 15px 110px;letter-spacing: 0;font-size:0.95em;color: #000;box-sizing:border-box;}
-.pro_info {}
-.pro_info:after {clear:both; content:''; display:block}
-
-.nopost_wrap {position:relative;width: 90%;max-width: 640px;margin: 90px auto 70px;padding:60px 0 40px;background-color: #fdf4f3;}
-.msg_wrap {position:relative;width: 90%;max-width: 640px;margin: 40px auto 20px;padding: 50px 0 30px;background-color: #fdf4f3;}
-
-.nopost_wrap .gb_img,
-.msg_wrap .gb_img{position:absolute;top:-30px;left: 50%;width: 60px;height: 60px;margin-left: -30px;border-radius: 50%;}
-.nopost_wrap .gb_msg,
-.msg_wrap .gb_msg {position:relative;text-align: center;}
-.nopost_wrap .gb_msg span,
-.msg_wrap .gb_msg span{display:inline-block;padding: 0;line-height:1;font-size: 1em;color:#eb9687}
-.nopost_wrap .gb_btn{margin-top: 30px;}
-
-.pro-sns {position:absolute; top:65%; left:-5px; width:20px; height:20px; background:url('../images/ico_spr_sns24.png') -20px 0 no-repeat; background-size:200%}
-.pro-sns span   {display:block; text-indent:-9999px; overflow:hidden}
-.pro-sns.facebook {background-position:   -20px   0px}
-.pro-sns.twitter  {background-position:   -20px   -20px}
-.pro-sns.kakao    {background-position:   -20px   -40px}
-.pro-sns.naver    {background-position:   -20px   -60px}
-.pro-sns.dalpeng  {background-position:   -20px   -80px}
-.pro-sns.google   {background-position:   -20px   -100px}
-.pro-sns.notmember  {background-position: -20px   -120px}
-.pro-sns.instagram  {background-position: -20px   -140px}
-.pro_txt {font-size: 1em;margin: 0 0 20px;}
-.pro_txt>p{display:inline-block;vertical-align: top;}
-.pro_txt>p>strong{display:inline-block;margin: 0 30px 0 0;padding: 0;color: #333;}
-.pro_txt .date {font-size: 0.85em;color:#999;}
-
-.gb_cont {clear:both;padding: 0;}
-.gb_cont li {margin-bottom: 20px;min-height:1px;}
-.gb_cont li img {max-width:100%;border-radius:6px}
-.gb_cont li.comm_txt > p + div {margin-top:10px}
-.gb_skip {overflow:hidden}
-.gb_skip .gb_comm {height: 24px;color: #aaa;font-size: 0.85em;font-weight: 300;margin:0 10px 0 0;}
-.gb_skip .gb_comm.color {color: #eb9687;font-weight: 500;}
+/* 별도파일로 분할 */
 
 /* Location */
 	.lo_tab_wrap {position: relative;padding: 0;z-index: 10;}
