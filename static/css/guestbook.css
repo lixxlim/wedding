@@ -34,7 +34,6 @@ body {
 
 /* ----- 방명록 전체 컨테이너 스타일 ----- */
 .guestbook_wrap {
-    max-width: 700px; /* 컴팩트하게 보이도록 최대 너비 약간 줄임 */
     margin: 30px auto;
     padding: 25px;
     background-color: var(--card-bg-color);
@@ -48,8 +47,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    /* 만약 #guestbook-list 자체에 text-align: center; 등이 있다면 제거하거나 left로 변경 */
-    /* text-align: left; */
+    max-width: 700px; /* 컴팩트하게 보이도록 최대 너비 약간 줄임 */
 }
 
 .msg_wrap {
@@ -59,8 +57,6 @@ body {
     border-radius: var(--border-radius-sm);
     box-shadow: var(--box-shadow-light);
     text-align: left;
-    /* 기존 .msg_wrap의 width, max-width, margin, 큰 padding, 배경색은 제거됨 */
-    /* 기존 position:relative 는 제거됨 */
 }
 
 .gb_header {

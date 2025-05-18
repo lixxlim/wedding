@@ -28,7 +28,7 @@
 		<link rel="stylesheet" href="./static/css/common.css?v=20250509" />
 		<link rel="stylesheet" href="./static/css/style.css?v=20250509" />
 		<link rel="stylesheet" href="./static/css/guestbook.css?v=20250509">
-		<!-- <link rel="stylesheet" href="./static/css/style-sub.css" type="text/css"> -->
+		<link rel="stylesheet" href="./static/css/style-sub.css?v=20250509" />
 	</head>
 
 	<body>
@@ -39,14 +39,8 @@
 			<!-- TODO: 카톡, 위챗, 계좌번호로 변경 -->
 			<div data-role="panel" id="panel_groom" class="leftpanel" data-position="left" data-display="push" data-position-fixed="true" data-swipe-close="true" data-theme="b" style="background:#25262b url('./static/images/gallery/001.webp') center top no-repeat; background-size:100%; z-index:9999;">
 				<div class="groom-wrap">
-					<div class="top_tit">
-						<h2>신랑 임은총</h2>
-						<p>축하의 마음을 담아 축의금을 전달해 보세요</p>
-					</div>
-					<ul>
-						<li class="ico5"><a href="tel:010-0000-0000">신랑에게 전화하기</a></li>
-						<li class="ico6"><a href="sms:010-0000-0000">신랑에게 문자하기</a></li>
-					</ul>
+					<li class="ico-kakao"></li>
+					
 				</div>
 			</div> <!-- 팝업 패널 신랑 끝 -->
 			<!-- 팝업 패널 신부 시작 -->
@@ -58,8 +52,8 @@
 						<p>축하의 마음을 담아 축의금을 전달해 보세요</p>
 					</div>
 					<ul>
-						<li class="ico1"><a href="tel:010-0000-0000">신부에게 전화하기</a></li>
-						<li class="ico2"><a href="sms:010-0000-0000">신부에게 문자하기</a></li>
+						<li class="ico1 ico-kakao"><a href="javascript:void(0)">신부에게 전화하기</a></li>
+						<li class="ico1"><a href="javascript:void(0)">신부에게 문자하기</a></li>
 					</ul>
 				</div>
 			</div> <!-- 팝업 패널 신부 끝 -->
@@ -368,24 +362,16 @@
 							</table>
 						</div>
 						<!-- 연락처 영역 시작 -->
-						<!-- TODO: 연락 아이디(카카오톡, 위챗), 계좌번호 팝업 만들기 -->
 						<div class="parents_wrap">
 							<h2 class="pa-tit">축하의 마음 전하기</h2>
 							<p class="pa-text">축하의 마음을 담아 축의금을 전달해 보세요.</p>
 							<ul class="pa-list">
-								<li><a href="#panel_groom" class="pa-groom"><span class="ico-arrow">신랑 연락처 보기</span></a></li>
-								<li><a href="#panel_bride" class="pa-bride"><span class="ico-arrow">신부 연락처 보기</span></a></li>
+								<li><a href="#panel_groom" class="pa-groom"><span class="ico-arrow">신랑 연락처, 계좌번호 보기</span></a></li>
+								<li><a href="#panel_bride" class="pa-bride"><span class="ico-arrow">신부 연락처, 계좌번호 보기</span></a></li>
 							</ul>
 						</div> <!-- 연락처 영역 끝끝 -->
 					</div> <!-- 초대글 전체 영역 끝 -->
 					
-					<!-- 일자표시 전체 영역 시작 -->
-					<!-- TODO: 달력표시 추가 -->
-					<div class="dday_cont">
-						<p class="date">2025.09.09 (화) 오후 1시</p>
-						<p class="text" id="d-day-counter">둘이 하나 되는 날까지 기다리는 중...</p>
-					</div> <!-- 일자표시 전체 영역 끝 -->
-
 					<!-- 갤러리 전체 영역 시작 -->
 					<div class="gallery_wrap more" id="sk_gallery">
 						<h2 class="title"><p><strong>갤러리</strong><i>GALLERY</i></p></h2>
@@ -434,6 +420,12 @@
 							</ul>
 						</div>
 					</div> <!-- 갤러리 전체 영역 끝 -->
+
+					<!-- 일자표시 전체 영역 시작 -->
+					<div class="dday_cont">
+						<p class="date">2025.09.09 (화) 오후 1시</p>
+						<p class="text" id="d-day-counter">둘이 하나 되는 날까지 기다리는 중...</p>
+					</div> <!-- 일자표시 전체 영역 끝 -->
 
 					<!-- 방명록 전체 영역 시작 -->
 					<div class="guestbook_wrap" id="sk_snsbbs">
@@ -528,7 +520,6 @@
 			</div> <!-- footer 끝 -->
 
 		</div>
-
 		
 		<!-- Javascript -->
 		<script src="./static/js/jquery-1.11.1.min.js"></script>

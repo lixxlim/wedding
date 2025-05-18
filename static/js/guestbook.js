@@ -1,4 +1,5 @@
 const apiUrl = "https://api.lixlim.com/wedding/guestbook";
+const guestbookArea = document.getElementById('sk_snsbbs');
 
 // 방명록 리스트 가져오기
 async function fetchGuestbook(page = 0, size = 10, sort = "createdDatetimeUtc,desc") { // size와 sort 파라미터 추가
@@ -98,17 +99,21 @@ function renderGuestbook(guestbookEntries, totalPages, currentPageNumber) { // �
         if (startPage > 0) {
             const firstPageBtn = document.createElement("button");
             firstPageBtn.textContent = "<<";
-            firstPageBtn.title = "첫 페이지로";
-            firstPageBtn.addEventListener("click", () => fetchGuestbook(0));
+            firstPageBtn.addEventListener("click", () => {
+                fetchGuestbook(0);
+                guestbookArea.scrollIntoView();
+            });
             paginationContainer.appendChild(firstPageBtn);
         }
 
         // "이전 그룹" 또는 "이전 페이지" 버튼
         if (currentPageNumber > 0) {
             const prevBtn = document.createElement("button");
-            prevBtn.textContent = "이전";
-            // prevBtn.textContent = "<"; // 또는 아이콘
-            prevBtn.addEventListener("click", () => fetchGuestbook(currentPageNumber - 1));
+            prevBtn.textContent = "<";
+            prevBtn.addEventListener("click", () => {
+                fetchGuestbook(currentPageNumber - 1);
+                guestbookArea.scrollIntoView();
+            });
             paginationContainer.appendChild(prevBtn);
         }
 
@@ -120,6 +125,7 @@ function renderGuestbook(guestbookEntries, totalPages, currentPageNumber) { // �
             pageBtn.addEventListener("click", () => {
                 if (i !== currentPageNumber) {
                     fetchGuestbook(i);
+                    guestbookArea.scrollIntoView();
                 }
             });
             paginationContainer.appendChild(pageBtn);
@@ -128,9 +134,11 @@ function renderGuestbook(guestbookEntries, totalPages, currentPageNumber) { // �
         // "다음 그룹" 또는 "다음 페이지" 버튼
         if (currentPageNumber < totalPages - 1) {
             const nextBtn = document.createElement("button");
-            nextBtn.textContent = "다음";
-            // nextBtn.textContent = ">"; // 또는 아이콘
-            nextBtn.addEventListener("click", () => fetchGuestbook(currentPageNumber + 1));
+            nextBtn.textContent = ">";
+            nextBtn.addEventListener("click", () => {
+                fetchGuestbook(currentPageNumber + 1);
+                guestbookArea.scrollIntoView();
+            });
             paginationContainer.appendChild(nextBtn);
         }
 
@@ -139,7 +147,10 @@ function renderGuestbook(guestbookEntries, totalPages, currentPageNumber) { // �
             const lastPageBtn = document.createElement("button");
             lastPageBtn.textContent = ">>";
             lastPageBtn.title = "마지막 페이지로";
-            lastPageBtn.addEventListener("click", () => fetchGuestbook(totalPages - 1));
+            lastPageBtn.addEventListener("click", () => {
+                fetchGuestbook(totalPages - 1);
+                guestbookArea.scrollIntoView();
+            });
             paginationContainer.appendChild(lastPageBtn);
         }
 
@@ -191,7 +202,8 @@ async function addGuestbook() {
             const createdGuestbook = await response.json(); // 성공 시 등록된 방명록 데이터
 
             fetchGuestbook(); // 목록 새로고침 (현재 페이지로 할지, 첫 페이지로 할지 결정 필요)
-            toggleGuestbookForm(false); // 폼 숨김 처리 (필요 시)
+            toggleGuestbookForm(false); // 폼 숨김 처리
+            guestbookArea.scrollIntoView(); // 방명록 목록으로 스크롤
 
             // 폼 초기화
             if (userNameInput) userNameInput.value = "";
@@ -220,17 +232,19 @@ async function addGuestbook() {
     }
 }
 
-// 예시: 폼 제출 이벤트에 addGuestbook 함수 연결
-// HTML에 <form id="guestbook-form"> 이 있고, <button type="submit">등록</button> 이 있다고 가정
+// 폼 제출 이벤트에 addGuestbook 함수 연결
 const guestbookForm = document.getElementById("guestbook-form");
 if (guestbookForm) {
     guestbookForm.addEventListener("submit", function(event) {
-        event.preventDefault(); // 폼 기본 제출 동작 방지
+        event.preventDefault();
         addGuestbook();
+
+        // 폼 제출 후 방명록 목록으로 스크롤
+        guestbookArea.scrollIntoView();
     });
 }
 
-// 방명록 삭제 (수정된 버전)
+// 방명록 삭제
 async function deleteGuestbook(guestbookId) { // 파라미터명을 guestbookId로 명확히 함
     const deleteKey = prompt("방명록 삭제를 위한 패스워드를 입력하세요:");
 
@@ -261,6 +275,7 @@ async function deleteGuestbook(guestbookId) { // 파라미터명을 guestbookId�
         if (response.ok) { // HTTP 상태 코드가 200-299 범위 (성공적인 삭제는 보통 204 No Content)
             alert("방명록이 성공적으로 삭제되었습니다.");
             fetchGuestbook(); // 목록 새로고침
+            guestbookArea.scrollIntoView(); // 방명록 목록으로 스크롤
         } else if (response.status === 401) { // HttpStatus.UNAUTHORIZED (삭제키 불일치)
             alert("패스워드가 일치하지 않습니다. 다시 시도해주세요.");
         } else if (response.status === 404) { // HttpStatus.NOT_FOUND (존재하지 않는 아이디)
