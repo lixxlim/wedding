@@ -183,13 +183,11 @@ body {background-color: #f0f0f0}
 .home_cont .date span{display:inline-block;margin:0 4px}
 .home_cont .loca {font-size:1.2em;color: #000;}
 
-.header_panel {position:fixed;bottom:-100px;left:15px;right:15px;-webkit-transition:0.5s bottom,0.5s opacity;transition:0.5s bottom,0.5s opacity;z-index: 999}
-.header_panel a {display:block;width: 70px;height: 70px;padding: 8px 0 0;font-size: 0.85em;color:#fff!important;}
-.header_panel a .icon {display:block;margin: 0 auto;padding:0;width:55px;height: 28px;background: url(../images/ico_couple.png) no-repeat;background-size:110px auto;}
+/* 헤더 패널 */
+.header_panel {position:fixed;bottom:-100px;left:15px;right:15px;-webkit-transition:0.5s bottom,0.5s opacity;transition:0.5s bottom,0.5s opacity;z-index: 999;}
+.header_panel a {display:flex;width: 70px;height: 70px;padding: 0;font-size: 0.85em;color:#fff!important;justify-content: center;align-items: center;}
 .header_panel p {background-color: rgba(100, 100, 100, 0.5);border-radius:50%;text-align:center;}
-.header_panel p.groom .icon {background-position: 0 2px}
-.header_panel p.bride .icon {background-position:100% 0}
-.header_panel p:first-child {float:left}
+.header_panel p:first-child {float:left;align-items: center;}
 .header_panel p:last-child {float:right}
 
 /* title */
@@ -263,11 +261,9 @@ h2.title i {display:block;font-family:'Roboto',sans-serif;font-size:12px;color:#
   .lnb_mobile {left:auto;right:0;margin:0}
   .header_panel {left:5px;right:5px;}
   .header_panel.show {bottom:5px}
-  .header_panel p {width: 50px;height: 50px;}
-  .header_panel a {width: 50px;height: 50px;padding: 10px 0 0 0;font-size:0;line-height:0;text-indent:-9999px;}
-  .header_panel a .icon {width: 45px;background-size:90px auto;}
-  
+  .header_panel p {width: 50px;height: 50px;display: flex; justify-content: center; align-items: center;}
 }
+
 @media (max-width:640px){
   .lnb_mobile {width: 66px;height: 66px;}
   .header_cont {padding-bottom: 80px;padding-right: 30px;}
@@ -325,9 +321,8 @@ h2.title i {display:block;font-family:'Roboto',sans-serif;font-size:12px;color:#
   .lnb_mobile .bar_line, .lnb_mobile .bar_line:before, .lnb_mobile .bar_line:after {width:24px}
   .lnb_mobile .bar_line:before{top:-6px}
   .lnb_mobile .bar_line:after{bottom:-6px}
-  .header_panel p {width: 50px;height: 50px;}
-  .header_panel a {width:50px;height:50px}
-  .header_panel a .icon {width:40px;background-size:80px auto}  
+  .header_panel p {width:50px;height:50px;}
+  .header_panel a {width:50px;height:50px;} 
   h2.title:before,
   h2.title:after {width:60px}
   
@@ -341,39 +336,13 @@ div#panel_groom,div#panel_groom .ui-panel-inner,
 div#panel_bride,div#panel_bride .ui-panel-inner {padding:0}
 
 .groom-wrap,
-.bride-wrap {position:relative; width:273px; font-size:0; line-height:0; text-indent:-9999px; box-sizing: border-box}
-.groom-wrap p,
-.groom-wrap ul li,
-.bride-wrap p,
-.bride-wrap ul li {cursor:pointer}
-.groom-wrap p.write, 
-.bride-wrap p.write {position:absolute;top:320px;right:0;width:50px;height:50px;text-shadow:none!important;background: rgba(234, 134, 119, 0.9) url(../images/ico_panel.png) 100% 0 no-repeat;background-size:250px;font-size:0;line-height:0;text-indent:-9999px;}
-.groom-wrap p {right:2px}
-.groom-wrap ul,
-.bride-wrap ul {position:absolute;top: 406px;left:0;width:270px;height:50px}
-.groom-wrap ul:after,
-.bride-wrap ul:after{position:absolute;bottom:-100px;left:0;width:271px;height:100px;content:''}
+.bride-wrap {
+  position: relative;
+  width: 273px;
+  font-size: 1.5em;
+  box-sizing: border-box
+}
 
-.groom-wrap ul li,
-.bride-wrap ul li {float:left; width:50%; height:50px; margin:0; background:rgba(255, 255, 255, 1);font-size:0; line-height:0; text-indent:-9999px}
-
-
-
-.groom-wrap ul li + li,
-.bride-wrap ul li + li {border-left:1px solid #000000;border-color:rgba(255,255,255,0.3);}
-.groom-wrap ul li > a,
-.bride-wrap ul li > a {display:block;position:relative;width:100%;height:50px;}
-.groom-wrap ul li > a:after,
-.bride-wrap ul li > a:after {display:block;position:absolute;top:0;left:50%;width:50px;height:50px;margin-left:-25px;background-size:250px;content:"";}
-
-.groom-wrap ul li.ico-kakao > a:after,
-.bride-wrap ul li.ico-kakao > a:after {background:url(../images/ico_kakaotalk.png) 0 0 no-repeat;}
-/* .groom-wrap ul li.ico6 > a:after,
-.bride-wrap ul li.ico2 > a:after {background-position:-50px 0}
-.groom-wrap ul li.ico7 > a:after,
-.bride-wrap ul li.ico3 > a:after {background-position:-100px 0}
-.groom-wrap ul li.ico8 > a:after,
-.bride-wrap ul li.ico4 > a:after {background-position:-150px 0} */
 
 
 @media all and (max-height: 543px) {
@@ -382,7 +351,6 @@ div#panel_bride,div#panel_bride .ui-panel-inner {padding:0}
 	.groom-wrap p,
 	.bride-wrap p {position:fixed!important; top:auto!important; bottom:0!important; left:221px!important}
 }
-
 
 /* gallery */
 .dday_cont{margin:40px 0;text-align:center;font-size: 1em;font-weight:300;}
