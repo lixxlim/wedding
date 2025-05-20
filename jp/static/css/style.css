@@ -1,7 +1,7 @@
 @charset "utf-8";
 /* @import url('//fonts.googleapis.com/earlyaccess/notosanskr.css'); */
 @font-face {
-  font-family: 'Noto Sans KR';
+  font-family: 'Noto Sans KR', "Noto Sans JP", "Noto Sans SC";
   font-style: normal;
   font-weight: 300;
   src: url('//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.woff2') format('woff2'),
@@ -9,7 +9,7 @@
        url('//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.otf') format('opentype');
 }
 @font-face {
-   font-family: 'Noto Sans KR';
+   font-family: 'Noto Sans KR', "Noto Sans JP", "Noto Sans SC";
    font-style: normal;
    font-weight: 500;
    src: url('//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.woff2') format('woff2'),
@@ -66,7 +66,7 @@ strong {font-weight:500}
 
 /* Layout */
 html {overflow-x: hidden}
-html,body {font-family:'Noto Sans KR',AppleSDGothicNeo-Regular,Droid sans,'Malgun Gothic',Dotum,Helvetica,sans-serif;font-size: 100%;font-weight:300}
+html,body {font-family:'Noto Sans KR', "Noto Sans JP", "Noto Sans SC",AppleSDGothicNeo-Regular,Droid sans,'Malgun Gothic',Dotum,Helvetica,sans-serif;font-size: 100%;font-weight:300}
 body {background-color: #f0f0f0}
 #skin_page.ui-page {z-index:10;background-color: #f0f0f0;color:#333}
 #skin_page.ui-page:after{content:'';display:block;clear:both}
@@ -107,7 +107,7 @@ body {background-color: #f0f0f0}
 .lnb ul {text-align: right;font-size:0;}
 .lnb ul:after {display:block; content:''; clear:both}
 .lnb li {position:relative;display:inline-block;margin:0;padding: 0 10px;height:50px;color: #fff;}
-.lnb li span{font-size: 13px;line-height: 50px;font-family: 'Roboto', sans-serif;text-transform: uppercase;letter-spacing: 0.3px; font-weight:400}
+.lnb li span{font-size: 13px;line-height: 50px;font-family: 'Roboto', "Noto Sans JP", "Noto Sans SC", sans-serif;text-transform: uppercase;letter-spacing: 0.3px; font-weight:400}
 .lnb li.on:after {content:''}
 .lnb li:after{content:'';position:absolute;top: 22px;right: -2px;width: 4px;height: 4px;border-radius: 50%;background-color: #fdc4ba;}
 .lnb li:last-child {padding-right:35px}
@@ -166,7 +166,7 @@ body {background-color: #f0f0f0}
 
 .header_cont {position: relative;text-align:right;line-height:1.5;padding: 50px 50px 110px;z-index: 30;}
 .header_cont div > p {position:relative;}
-.header_cont .date {margin:0 0 30px;color:#666;font-family: 'Rochester', cursive;font-size: 2.6em;line-height: 1;}
+.header_cont .date {margin:0 0 30px;color:#666;font-family: 'Rochester', "Noto Sans JP", "Noto Sans SC", cursive;font-size: 2.6em;line-height: 1;}
 .header_cont .name {margin:0 0 10px;font-size: 1.6em;color:#666;line-height: 1.2;font-weight:500}
 .header_cont .name span {display:inline-block}
 .header_cont .name span.and{padding:0 5px;color:#f6907e}
@@ -196,7 +196,7 @@ h2.title:before{position:absolute;top:50%;left:0;width:140px;height:30px;margin-
 h2.title:after{position:absolute;top:50%;right:0;width:140px;height:30px;margin-top:-17px;background:url(../images/titlebg-right.png) repeat-x left top;background-size:auto 30px;content:''}
 h2.title p {display:inline-block}
 h2.title strong {display:block;font-size:1.28em;color:#333;letter-spacing:30px;margin:0 -30px 4px 0;}
-h2.title i {display:block;font-family:'Roboto',sans-serif;font-size:12px;color:#aaa;letter-spacing:17px;margin-right:-17px}
+h2.title i {display:block;font-family:'Roboto',"Noto Sans JP", "Noto Sans SC", sans-serif;font-size:12px;color:#aaa;letter-spacing:17px;margin-right:-17px}
 
 .invite_wrap h2.title i{letter-spacing:17px;margin-right:-17px}
 .gallery_wrap h2.title i{letter-spacing:9px;margin-right:-9px}
@@ -525,7 +525,7 @@ div#panel_bride,div#panel_bride .ui-panel-inner {padding:0}
 .lo_box .ui-block-b {padding: 0;}
 .lo_title {margin: 0;padding: 70px 30px 40px;text-align:center;line-height:1;}
 .lo_title .tit {position:relative;margin: 0 0 30px}
-.lo_title .tit span{display:block;font-size: 1.5em;color: #df4d4d;margin:0;font-family: 'Roboto', sans-serif;font-weight:300;}
+.lo_title .tit span{display:block;font-size: 1.5em;color: #df4d4d;margin:0;font-family: 'Roboto', "Noto Sans JP", "Noto Sans SC", sans-serif;font-weight:300;}
 .lo_title .tit strong{font-weight:500}
 .lo_title .date,
 .lo_title .place{color: #444;font-weight: 500;font-size: 1.05em;line-height:1.5;margin: 10px 0 0;}
@@ -700,9 +700,9 @@ and (max-device-width : 374px) {
 }
 
 .header_cont .name,
-.header_cont .loca {font-family: 'Nanum Myeongjo','나눔고딕', 'Nanum Gothic', 'NanumGothic', '돋움', Dotum, Helvetica, sans-serif;font-weight:700;}
+.header_cont .loca {font-family: "Noto Sans JP", "Noto Sans SC", 'Nanum Myeongjo','나눔고딕', 'Nanum Gothic', 'NanumGothic', '돋움', Dotum, Helvetica, sans-serif;font-weight:700;}
 .home_wrap.animated .home_cont .name,
-.home_wrap.animated .home_cont .msg {font-family:'Nanum Myeongjo','나눔고딕', 'Nanum Gothic', 'NanumGothic', '돋움', Dotum, Helvetica, sans-serif;font-weight:700;}
+.home_wrap.animated .home_cont .msg {font-family:"Noto Sans JP", "Noto Sans SC", 'Nanum Myeongjo','나눔고딕', 'Nanum Gothic', 'NanumGothic', '돋움', Dotum, Helvetica, sans-serif;font-weight:700;}
 
 
 /* animated */
@@ -775,7 +775,7 @@ and (max-device-width : 374px) {
   width:100%;
   height: 40px;
   text-align:center;
-  font-family:'Roboto',sans-serif;
+  font-family:'Roboto',"Noto Sans JP", "Noto Sans SC", sans-serif;
   font-size:0.9em;
   font-weight:bold;
   color:#777;
@@ -814,7 +814,7 @@ and (max-device-width : 374px) {
 #right-panel .ui-listview>.ui-li-divider {color:#fff;text-shadow: none;font-size:16px;font-weight:300;} 
 
 #right-panel .ui-body-a,
-.ui-page-theme-a #right-panel .ui-body-inherit {font-family:'Nanum Myeongjo','나눔고딕', 'Nanum Gothic', 'NanumGothic', '돋움', Dotum, Helvetica, sans-serif;background:#25262b!important;color:#fff;text-shadow: none;border-color:rgba(255,255,255,.2);}
+.ui-page-theme-a #right-panel .ui-body-inherit {font-family:"Noto Sans JP", "Noto Sans SC", 'Nanum Myeongjo','나눔고딕', 'Nanum Gothic', 'NanumGothic', '돋움', Dotum, Helvetica, sans-serif;background:#25262b!important;color:#fff;text-shadow: none;border-color:rgba(255,255,255,.2);}
 .ui-page-theme-a #right-panel .ui-first-child:after {display:block;visibility:hidden;height:0;font-size:0;clear:both;content:"";}
 .ui-page-theme-a #right-panel .ui-btn {float:right;width:20px;height:40px;color:#fff;text-shadow: none;text-align:right;color:transparent;border-top:0 none;background:transparent url(../images/olleh_close.png) no-repeat right 50%;background-size:20px 20px;}
 .ui-content .ui-listview, .ui-panel-inner>.ui-listview {margin:0;}

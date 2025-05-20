@@ -1,0 +1,5 @@
+@charset "utf-8";
+
+.loaded .header_cont div,
+.loaded .home_cont div,
+.loaded .lnb {opacity:1 !important}
