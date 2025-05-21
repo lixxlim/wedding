@@ -22,7 +22,7 @@ async function fetchGuestbook(page = 0, size = 10, sort = "createdDatetimeUtc,de
     } catch (error) {
         console.error("방명록 데이터를 가져오는 중 오류 발생:", error);
         const listContainer = document.getElementById("guestbook-list");
-        listContainer.innerHTML = `<p style="color: red;">데이터를 불러오는데 실패했습니다. 잠시 후 다시 시도해주세요.</p>`;
+        listContainer.innerHTML = `<p style="color: red;">Fail to load</p>`;
     }
 }
 
@@ -38,7 +38,7 @@ function renderGuestbook(guestbookEntries, totalPages, currentPageNumber) { // �
     }
 
     if (!guestbookEntries || guestbookEntries.length === 0) {
-        listContainer.innerHTML = "<p>작성된 방명록이 없습니다.</p>";
+        listContainer.innerHTML = "<p>Empty</p>";
         return;
     }
 
@@ -52,7 +52,7 @@ function renderGuestbook(guestbookEntries, totalPages, currentPageNumber) { // �
                     <strong>${entry.userName}</strong>
                     <span class="gb_date">(${formattedDate})</span>
                 </div>
-                <button class="delete-btn" data-id="${entry.guestbookId}">삭제하기</button>
+                <button class="delete-btn" data-id="${entry.guestbookId}">Delete</button>
             </div>
             <div class="gb_msg">
                 ${entry.text}
